@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="../images/Logo.png" alt="Logo" class="logo">
+            <h2>Student Dashboard</h2>
+        </div>
+        <ul>
+            <li><a href="#" class="nav-link active" data-page="courses">My Courses</a></li>
+            <li><a href="#" class="nav-link" data-page="sessions">Sessions Schedule</a></li>
+            <li><a href="#" class="nav-link" data-page="grades">Grades/Reports</a></li>
+            <li><a href="#" class="nav-link" data-page="profile">Profile</a></li>
+            <li><a href="#" class="nav-link" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-content">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1>Welcome, <span id="studentName">Student's name</span></h1>
+            <div class="student-info">
+                <p>Student ID: <span id="studentId">-</span></p>
+                <p>Major: <span id="studentMajor">-</span></p>
+                <p>Year: <span id="studentYear">-</span></p>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="course-list dashboard-section" id="courses-section">
+            <h2>My Courses</h2>
+            <div class="courses-container" id="coursesContainer">
+                <!-- Courses will be populated dynamically -->
+                <div class="course-item">
+                    <h3>Loading courses...</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sessions Section -->
+        <section class="session-schedule dashboard-section" id="sessions-section" style="display: none;">
+            <h2>Session Schedule</h2>
+            <div class="sessions-container" id="sessionsContainer">
+                <!-- Sessions will be populated dynamically -->
+                <div class="session-item">
+                    Loading sessions...
+                </div>
+            </div>
+            <button class="join-btn" id="joinSessionBtn">Join as Student/Participant</button>
+        </section>
+
+        <!-- Grades Section -->
+        <section class="grades-section dashboard-section" id="grades-section" style="display: none;">
+            <h2>Grades/Reports</h2>
+            <div class="grades-actions">
+                <button class="action-btn" id="viewGradesBtn">View Grades</button>
+                <button class="action-btn" id="feedbackBtn">Feedback from Faculty</button>
+            </div>
+            <div class="grades-container" id="gradesContainer" style="display: none;">
+                <!-- Grades will be populated dynamically -->
+            </div>
+            <div class="feedback-container" id="feedbackContainer" style="display: none;">
+                <!-- Feedback will be populated dynamically -->
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="profile-section dashboard-section" id="profile-section" style="display: none;">
+            <h2>Profile Information</h2>
+            <form id="profileForm" class="profile-form">
+                <div class="form-group">
+                    <label for="profileFirstName">First Name:</label>
+                    <input type="text" id="profileFirstName" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="profileLastName">Last Name:</label>
+                    <input type="text" id="profileLastName" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="profileEmail">Email:</label>
+                    <input type="email" id="profileEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="profileDob">Date of Birth:</label>
+                    <input type="date" id="profileDob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="profileMajor">Major:</label>
+                    <select id="profileMajor" name="major_id" required>
+                        <option value="">Select your major</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="profileYear">Year of Study:</label>
+                    <input type="number" id="profileYear" name="year_of_study" min="1" max="5" required>
+                </div>
+                <button type="submit" class="action-btn">Update Profile</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/student-dashboard.js"></script>
+</body>
+</html>

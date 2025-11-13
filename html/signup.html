@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Attendance Management System</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+</head>
+<body>
+    <div class="container">
+        <img src="../images/Logo.png" alt="Logo" class="logo">
+        <h1>Furairah's Attendance Management System</h1>
+        <h2>Create Your Account</h2>
+        
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                <small id="passwordMessage" class="error-message">Passwords do not match!</small>
+            </div>
+
+            <div class="form-group">
+                <label for="user_id">User ID:</label>
+                <input type="text" pattern="[0-9]*" inputmode="numeric" id="user_id" name="user_id" placeholder="Enter your user ID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role" required onchange="toggleRoleFields()">
+                    <option value="">Select your role</option>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="intern">Faculty Intern</option>
+                </select>
+            </div>
+
+            <!-- Student-specific fields -->
+            <div id="studentFields" class="role-specific-fields">
+                <div class="form-group">
+                    <label for="major_id">Major:</label>
+                    <select id="major_id" name="major_id">
+                        <option value="">Select your major</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="year_of_study">Year of Study:</label>
+                    <input type="number" id="year_of_study" name="year_of_study" min="1" max="5" placeholder="Enter year of study">
+                </div>
+            </div>
+
+            <!-- Faculty-specific fields -->
+            <div id="facultyFields" class="role-specific-fields">
+                <div class="form-group">
+                    <label for="department_id">Department:</label>
+                    <select id="department_id" name="department_id">
+                        <option value="">Select your department</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="designation">Designation:</label>
+                    <input type="text" id="designation" name="designation" placeholder="Enter your designation">
+                </div>
+            </div>
+
+            <!-- Intern-specific fields -->
+            <div id="internFields" class="role-specific-fields">
+                <div class="form-group">
+                    <label for="assigned_department">Assigned Department:</label>
+                    <select id="assigned_department" name="assigned_department">
+                        <option value="">Select assigned department</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date">
+                </div>
+                
+                <div class="form-group">
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date">
+                </div>
+            </div>
+
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p><a href="../index.html">← Back to Home</a></p>
+        </form>
+    </div>
+
+    <script src="../js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body>
+    <div class="container">
+        <img src="images/Logo.png" alt="Logo" class="logo">
+        <h1>Furairah's Attendance Management System</h1>
+        <h2>Welcome to Your Attendance Portal</h2>
+        
+        <div class="welcome-actions">
+            <a href="html/login.html" class="action-btn" style="display: block; text-decoration: none; text-align: center; margin: 10px 0;">
+                Login to Your Account
+            </a>
+            <a href="html/signup.html" class="action-btn secondary" style="display: block; text-decoration: none; text-align: center; margin: 10px 0;">
+                Create New Account
+            </a>
+        </div>
+
+        <div class="system-info">
+            <h3>System Features</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>For Students:</strong> Track attendance, view schedules, check grades
+                </div>
+                <div class="feature-item">
+                    <strong>For Faculty:</strong> Manage courses, take attendance, generate reports
+                </div>
+                <div class="feature-item">
+                    <strong>For Interns:</strong> Assist faculty, manage sessions, view analytics
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is already logged in and redirect accordingly
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../php/auth/check-auth.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const role = data.user.role;
+                        const dashboardRoutes = {
+                            student: 'html/student-dashboard.html',
+                            faculty: 'html/faculty-dashboard.html',
+                            intern: 'html/intern-dashboard.html'
+                        };
+                        window.location.href = dashboardRoutes[role] || 'html/login.html';
+                    }
+                })
+                .catch(error => {
+                    console.log('User not logged in, showing welcome page');
+                });
+        });
+    </script>
+</body>
+</html>
