@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $host = 'localhost';
 $dbname = 'attendance_system';
 $username = 'root';
-$password = '';
+$password = 'Fouri@2025SQL';
 
 try {
     $pdo = new PDO("mysql:host=$host", $username, $password);
@@ -43,4 +43,5 @@ try {
 } catch (PDOException $e) {
     echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
 }
+
 ?>
